@@ -37,7 +37,7 @@
                     <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
                     <div class="flex flex-row">
                         <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00" value="1000" required/>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
                 </div>
@@ -46,31 +46,31 @@
                         <label for="periodicDeposit" class="font-bold mb-1">Depósito periódico</label>
                         <div class="flex flex-row">
                             <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00"></input>
+                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00" value="100" required></input>
                         </div>
                         <span class="text-red-500 text-xs error"></span>
                     </div>
                     <div class="flex flex-col lg:w-2/6">
                         <label for="periodicType" class="font-bold mb-1 lg:invisible">Frecuencia del período</label>	
-                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] md:me-4" name="periodicType">
-                            <option value="">Semanalmente (52/año)</option>
-                            <option value="">Bi-Semanalmente (26/año)</option>
-                            <option selected value="">Mensualmente (12/año)</option>
-                            <option value="">Anualmente (1/año)</option>
+                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] md:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
                         </select>
                     </div>
                     <div class="flex flex-col lg:w-2/6">
                         <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
                         <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
-                            <option value="">Haces los depósitos al inicio de cada periodo</option>
-                            <option value="">Haces los depósitos al final de cada periodo</option>
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
                         </select>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <label for="interestRate" class="font-bold mb-1">Ration Interés Anual</label>
                     <div class="flex flex-row">
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"  value="1" required></input>
                         <div class="bg-slate-200 w-10 rounded-md rounded-s-none text-center p-1 font-bold">%</div>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
@@ -78,7 +78,7 @@
                 <div class="flex flex-col">
                     <label for="periods" class="font-bold mb-1">Duración</label>
                     <div class="flex flex-row">
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80"  value="10" required></input>
                         <div class="bg-slate-200 w-20 rounded-md rounded-s-none text-center p-1 font-semibold">años</div>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
@@ -92,7 +92,7 @@
                     <label for="saveGoal" class="font-bold mb-1">Objetivo de ahorro</label>
                     <div class="flex flex-row">
                         <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"  value="10000" required></input>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
                 </div>
@@ -100,7 +100,7 @@
                     <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
                     <div class="flex flex-row">
                         <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"  value="1000" required></input>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
                 </div>
@@ -109,31 +109,31 @@
                         <label for="periodicDeposit" class="font-bold mb-1">Depósito periódico</label>
                         <div class="flex flex-row">
                             <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00"></input>
+                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00"  value="100" required></input>
                         </div>
                         <span class="text-red-500 text-xs error"></span>
                     </div>
                     <div class="flex flex-col lg:w-2/6">
                         <label for="periodicType" class="font-bold mb-1 lg:invisible">Frecuencia del período</label>	
-                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] lg:me-4" name="periodicType">
-                            <option value="">Semanalmente (52/año)</option>
-                            <option value="">Bi-Semanalmente (26/año)</option>
-                            <option selected value="">Mensualmente (12/año)</option>
-                            <option value="">Anualmente (1/año)</option>
+                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] lg:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
                         </select>
                     </div>
                     <div class="flex flex-col lg:w-2/6">
                         <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
-                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment">
-                            <option value="">Haces los depósitos al inicio de cada periodo</option>
-                            <option value="">Haces los depósitos al final de cada periodo</option>
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
                         </select>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <label for="interestRate" class="font-bold mb-1">Ration Interés Anual</label>
                     <div class="flex flex-row">
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"  value="1" required></input>
                         <div class="bg-slate-200 w-10 rounded-md rounded-s-none text-center p-1 font-semibold">%</div>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
@@ -147,7 +147,7 @@
                     <label for="saveGoal" class="font-bold mb-1">Objetivo de ahorro</label>
                     <div class="flex flex-row">
                         <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"  value="10000" required></input>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
                 </div>
@@ -155,32 +155,32 @@
                     <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
                     <div class="flex flex-row">
                         <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"  value="1000" required></input>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
                 </div>
                 <div class="flex flex-col w-full justify-between gap-4 lg:flex-row lg:gap-0">
                     <div class="flex flex-col lg:w-3/6">
                         <label for="periodicType" class="font-bold mb-1">Frecuencia del período</label>	
-                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem] lg:me-4" name="periodicType">
-                            <option value="">Semanalmente (52/año)</option>
-                            <option value="">Bi-Semanalmente (26/año)</option>
-                            <option selected value="">Mensualmente (12/año)</option>
-                            <option value="">Anualmente (1/año)</option>
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem] lg:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
                         </select>
                     </div>
                     <div class="flex flex-col lg:w-3/6">
                         <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
-                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment">
-                            <option value="">Haces los depósitos al inicio de cada periodo</option>
-                            <option value="">Haces los depósitos al final de cada periodo</option>
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
                         </select>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <label for="interestRate" class="font-bold mb-1">Ration Interés Anual</label>
                     <div class="flex flex-row">
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"  value="1" required></input>
                         <div class="bg-slate-200 w-10 rounded-md rounded-s-none text-center p-1 font-semibold">%</div>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
@@ -188,7 +188,7 @@
                 <div class="flex flex-col">
                     <label for="periods" class="font-bold mb-1">Duración</label>
                     <div class="flex flex-row">
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80"  value="10" required></input>
                         <div class="bg-slate-200 w-20 rounded-md rounded-s-none text-center p-1 font-semibold">años</div>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
@@ -202,7 +202,7 @@
                     <label for="saveGoal" class="font-bold mb-1">Objetivo de ahorro</label>
                     <div class="flex flex-row">
                         <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"  value="10000" required></input>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
                 </div>
@@ -210,7 +210,7 @@
                     <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
                     <div class="flex flex-row">
                         <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"  value="1000" required></input>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
                 </div>
@@ -219,31 +219,31 @@
                         <label for="periodicDeposit" class="font-bold mb-1">Depósito periódico</label>
                         <div class="flex flex-row">
                             <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
-                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00"></input>
+                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00"  value="100" required></input>
                         </div>
                         <span class="text-red-500 text-xs error"></span>
                     </div>
                     <div class="flex flex-col lg:w-2/6">
                         <label for="periodicType" class="font-bold mb-1 lg:invisible">Frecuencia del período</label>	
-                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] lg:me-4" name="periodicType">
-                            <option value="">Semanalmente (52/año)</option>
-                            <option value="">Bi-Semanalmente (26/año)</option>
-                            <option selected value="">Mensualmente (12/año)</option>
-                            <option value="">Anualmente (1/año)</option>
+                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] lg:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
                         </select>
                     </div>
                     <div class="flex flex-col lg:w-2/6">
                         <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
-                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment">
-                            <option value="">Haces los depósitos al inicio de cada periodo</option>
-                            <option value="">Haces los depósitos al final de cada periodo</option>
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
                         </select>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <label for="periods" class="font-bold mb-1">Duración</label>
                     <div class="flex flex-row">
-                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80"></input>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80" ` value="10" required></input>
                         <div class="bg-slate-200 w-20 rounded-md rounded-s-none text-center p-1 font-semibold">años</div>
                     </div>
                     <span class="text-red-500 text-xs error"></span>
