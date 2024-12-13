@@ -1,0 +1,2594 @@
+<style>
+    #compound-calculator *{
+        all: revert;
+    }
+    
+    #compound-calculator{
+        tr, td, th, table{
+         all: revert !important;
+        }
+    }
+    
+    #compound-calculator{
+        *, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+/*
+! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+  font-feature-settings: normal;
+  /* 5 */
+  font-variation-settings: normal;
+  /* 6 */
+  -webkit-tap-highlight-color: transparent;
+  /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-feature-settings: normal;
+  /* 2 */
+  font-variation-settings: normal;
+  /* 3 */
+  font-size: 1em;
+  /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  letter-spacing: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.relative {
+  position: relative !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.my-1 {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.my-4 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+
+.me-1 {
+  margin-inline-end: 0.25rem !important;
+}
+
+.ms-1 {
+  margin-inline-start: 0.25rem !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.table {
+  display: table !important;
+}
+
+.grid {
+  display: grid !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.h-\[25vh\] {
+  height: 25vh !important;
+}
+
+.h-\[35vh\] {
+  height: 35vh !important;
+}
+
+.h-\[30vh\] {
+  height: 30vh !important;
+}
+
+.w-10 {
+  width: 2.5rem !important;
+}
+
+.w-20 {
+  width: 5rem !important;
+}
+
+.w-\[6rem\] {
+  width: 6rem !important;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.resize {
+  resize: both !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+.justify-end {
+  justify-content: flex-end !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+.gap-2 {
+  gap: 0.5rem !important;
+}
+
+.gap-4 {
+  gap: 1rem !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.overflow-scroll {
+  overflow: scroll !important;
+}
+
+.overflow-x-auto {
+  overflow-x: auto !important;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll !important;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap !important;
+}
+
+.rounded-md {
+  border-radius: 0.375rem !important;
+}
+
+.rounded-e-none {
+  border-start-end-radius: 0px !important;
+  border-end-end-radius: 0px !important;
+}
+
+.rounded-s-none {
+  border-start-start-radius: 0px !important;
+  border-end-start-radius: 0px !important;
+}
+
+.border {
+  border-width: 1px !important;
+}
+
+.border-\[1px\] {
+  border-width: 1px !important;
+}
+
+.border-b {
+  border-bottom-width: 1px !important;
+}
+
+.border-solid {
+  border-style: solid !important;
+}
+
+.border-slate-100 {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(241 245 249 / var(--tw-border-opacity, 1)) !important;
+}
+
+.border-slate-200 {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(226 232 240 / var(--tw-border-opacity, 1)) !important;
+}
+
+.border-slate-300 {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity, 1)) !important;
+}
+
+.border-red-500 {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1)) !important;
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-blue-600 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-lime-500 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(132 204 22 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-slate-100 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-slate-200 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-slate-900 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-violet-500 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(139 92 246 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.p-1 {
+  padding: 0.25rem !important;
+}
+
+.p-4 {
+  padding: 1rem !important;
+}
+
+.p-\[0\.4rem\] {
+  padding: 0.4rem !important;
+}
+
+.p-\[0\.65rem\] {
+  padding: 0.65rem !important;
+}
+
+.px-2\.5 {
+  padding-left: 0.625rem !important;
+  padding-right: 0.625rem !important;
+}
+
+.px-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.py-3 {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+.py-4 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.align-middle {
+  vertical-align: middle !important;
+}
+
+.text-3xl {
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+}
+
+.text-base {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+
+.text-lg {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+.text-xs {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.font-light {
+  font-weight: 300 !important;
+}
+
+.font-medium {
+  font-weight: 500 !important;
+}
+
+.font-semibold {
+  font-weight: 600 !important;
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1)) !important;
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1)) !important;
+}
+
+.text-slate-100 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(241 245 249 / var(--tw-text-opacity, 1)) !important;
+}
+
+.text-slate-700 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(51 65 85 / var(--tw-text-opacity, 1)) !important;
+}
+
+.blur {
+  --tw-blur: blur(8px) !important;
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+}
+
+.transition-all {
+  transition-property: all !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.hover\:bg-green-600:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.hover\:bg-slate-100:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.hover\:bg-slate-200:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1)) !important;
+}
+
+.hover\:bg-slate-50:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1)) !important;
+}
+
+@media (min-width: 768px) {
+  .md\:me-4 {
+    margin-inline-end: 1rem !important;
+  }
+
+  .md\:ms-0 {
+    margin-inline-start: 0px !important;
+  }
+
+  .md\:h-auto {
+    height: auto !important;
+  }
+
+  .md\:w-2\/6 {
+    width: 33.333333% !important;
+  }
+
+  .md\:w-4\/6 {
+    width: 66.666667% !important;
+  }
+
+  .md\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .md\:flex-col {
+    flex-direction: column !important;
+  }
+
+  .md\:p-28 {
+    padding: 7rem !important;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .md\:py-3 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:invisible {
+    visibility: hidden !important;
+  }
+
+  .lg\:me-4 {
+    margin-inline-end: 1rem !important;
+  }
+
+  .lg\:w-2\/6 {
+    width: 33.333333% !important;
+  }
+
+  .lg\:w-3\/6 {
+    width: 50% !important;
+  }
+
+  .lg\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column !important;
+  }
+
+  .lg\:gap-0 {
+    gap: 0px !important;
+  }
+
+  .lg\:rounded-e-none {
+    border-start-end-radius: 0px !important;
+    border-end-end-radius: 0px !important;
+  }
+
+  .lg\:rounded-s-none {
+    border-start-start-radius: 0px !important;
+    border-end-start-radius: 0px !important;
+  }
+}
+
+.rtl\:text-right:where([dir="rtl"], [dir="rtl"] *) {
+  text-align: right !important;
+}
+    }
+    
+   
+</style>
+
+    <!--Contenedor de la calculadora-->
+   <div class="container mx-auto text-base md:p-28 text-slate-700" id="compound-calculator">
+        <div class="border-solid border-[1px] border-slate-200 rounded-md bg-slate-100 p-4 mb-4">
+            <select name="calculatorType" id="calculatorType" class="border-solid border-[1px] border-slate-200 rounded-md w-full p-[0.65rem] mb-4">
+                <option selected value="save">¿Cuánto puedo ahorrar?</option>
+                <option value="time">¿Cuánto tardaré en alcanzar mi objetivo de ahorro?</option>
+                <option value="periodSave">¿Cuánto necesito ahorrar cada período para alcanzar mi objetivo de ahorro?</option>
+                <option value="percentage">¿Qué porcentaje de interés necesito para alcanzar mi objetivo de ahorro?</option>
+            </select>
+            <form id="save-Form" class="flex flex-col gap-4">
+                <div class="flex flex-col">
+                    <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
+                    <div class="flex flex-row">
+                        <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00" value="1000" required/>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col w-full justify-between gap-4 lg:flex-row lg:gap-0">
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicDeposit" class="font-bold mb-1">Depósito periódico</label>
+                        <div class="flex flex-row">
+                            <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00" value="100" required></input>
+                        </div>
+                        <span class="text-red-500 text-xs error"></span>
+                    </div>
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicType" class="font-bold mb-1 lg:invisible">Frecuencia del período</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] md:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <label for="interestRate" class="font-bold mb-1">Ration Interés Anual</label>
+                    <div class="flex flex-row">
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"  value="1" required></input>
+                        <div class="bg-slate-200 w-10 rounded-md rounded-s-none text-center p-1 font-bold">%</div>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col">
+                    <label for="periods" class="font-bold mb-1">Duración</label>
+                    <div class="flex flex-row">
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80"  value="10" required></input>
+                        <div class="bg-slate-200 w-20 rounded-md rounded-s-none text-center p-1 font-semibold">años</div>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-row justify-end w-full">
+                    <button type="submit" class="bg-green-500 text-slate-100 rounded-md p-[0.4rem] w-[6rem] font-semibold hover:bg-green-600 ease-in-out transition-all">Calcular</button>
+                </div>
+            </form>
+            <form id="time-Form" class="flex flex-col gap-4 hidden">
+                <div class="flex flex-col">
+                    <label for="saveGoal" class="font-bold mb-1">Objetivo de ahorro</label>
+                    <div class="flex flex-row">
+                        <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"  value="10000" required></input>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col">
+                    <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
+                    <div class="flex flex-row">
+                        <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"  value="1000" required></input>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col w-full justify-between gap-4 lg:flex-row lg:gap-0">
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicDeposit" class="font-bold mb-1">Depósito periódico</label>
+                        <div class="flex flex-row">
+                            <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00"  value="100" required></input>
+                        </div>
+                        <span class="text-red-500 text-xs error"></span>
+                    </div>
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicType" class="font-bold mb-1 lg:invisible">Frecuencia del período</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] lg:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <label for="interestRate" class="font-bold mb-1">Ration Interés Anual</label>
+                    <div class="flex flex-row">
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"  value="1" required></input>
+                        <div class="bg-slate-200 w-10 rounded-md rounded-s-none text-center p-1 font-semibold">%</div>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-row justify-end w-full">
+                    <button type="submit" class="bg-green-500 text-slate-100 rounded-md p-[0.4rem] w-[6rem] font-semibold hover:bg-green-600 ease-in-out transition-all">Calcular</button>
+                </div>
+            </form>
+            <form id="periodSave-Form" class="flex flex-col gap-4 hidden">
+                <div class="flex flex-col">
+                    <label for="saveGoal" class="font-bold mb-1">Objetivo de ahorro</label>
+                    <div class="flex flex-row">
+                        <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"  value="10000" required></input>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col">
+                    <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
+                    <div class="flex flex-row">
+                        <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"  value="1000" required></input>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col w-full justify-between gap-4 lg:flex-row lg:gap-0">
+                    <div class="flex flex-col lg:w-3/6">
+                        <label for="periodicType" class="font-bold mb-1">Frecuencia del período</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem] lg:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col lg:w-3/6">
+                        <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <label for="interestRate" class="font-bold mb-1">Ration Interés Anual</label>
+                    <div class="flex flex-row">
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="interestRate" placeholder="1,00" min="0" max="100"  value="1" required></input>
+                        <div class="bg-slate-200 w-10 rounded-md rounded-s-none text-center p-1 font-semibold">%</div>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col">
+                    <label for="periods" class="font-bold mb-1">Duración</label>
+                    <div class="flex flex-row">
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80"  value="10" required></input>
+                        <div class="bg-slate-200 w-20 rounded-md rounded-s-none text-center p-1 font-semibold">años</div>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-row justify-end w-full">
+                    <button type="submit" class="bg-green-500 text-slate-100 rounded-md p-[0.4rem] w-[6rem] font-semibold hover:bg-green-600 ease-in-out transition-all">Calcular</button>
+                </div>
+            </form>
+            <form id="percentage-Form" class="flex flex-col gap-4 hidden">
+                <div class="flex flex-col">
+                    <label for="saveGoal" class="font-bold mb-1">Objetivo de ahorro</label>
+                    <div class="flex flex-row">
+                        <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="saveGoal" placeholder="10000,00"  value="10000" required></input>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col">
+                    <label for="initialBalance" class="font-bold mb-1">Balance inicial</label>
+                    <div class="flex flex-row">
+                        <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md rounded-s-none p-[0.4rem]" name="initialBalance" placeholder="1000,00"  value="1000" required></input>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-col w-full justify-between gap-4 lg:flex-row lg:gap-0">
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicDeposit" class="font-bold mb-1">Depósito periódico</label>
+                        <div class="flex flex-row">
+                            <div class="bg-slate-200 w-10 rounded-md rounded-e-none text-center p-1 font-semibold">€</div>
+                            <input type="text" class="border-solid border-[1px] border-slate-200 rounded-s-none lg:rounded-e-none rounded-md p-[0.4rem] w-full" name="periodicDeposit" placeholder="100,00"  value="100" required></input>
+                        </div>
+                        <span class="text-red-500 text-xs error"></span>
+                    </div>
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicType" class="font-bold mb-1 lg:invisible">Frecuencia del período</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 lg:rounded-s-none rounded-md p-[0.65rem] lg:me-4" name="periodicType" >
+                            <option value="weekly">Semanalmente (52/año)</option>
+                            <option value="bi-weekly">Bi-Semanalmente (26/año)</option>
+                            <option selected value="monthly">Mensualmente (12/año)</option>
+                            <option value="anual">Anualmente (1/año)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col lg:w-2/6">
+                        <label for="periodicMoment" class="font-bold mb-1">Tiempo</label>	
+                        <select type="text" class="border-solid border-[1px] border-slate-200 rounded-md p-[0.65rem]" name="periodicMoment" >
+                            <option value="begin">Haces los depósitos al inicio de cada periodo</option>
+                            <option value="end">Haces los depósitos al final de cada periodo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <label for="periods" class="font-bold mb-1">Duración</label>
+                    <div class="flex flex-row">
+                        <input type="text" class="w-full border-solid border-[1px] border-slate-200 rounded-md p-[0.4rem] rounded-e-none" name="periods" placeholder="10" min="1" max="80" ` value="10" required></input>
+                        <div class="bg-slate-200 w-20 rounded-md rounded-s-none text-center p-1 font-semibold">años</div>
+                    </div>
+                    <span class="text-red-500 text-xs error"></span>
+                </div>
+                <div class="flex flex-row justify-end w-full">
+                    <button type="submit" class="bg-green-500 text-slate-100 rounded-md p-[0.4rem] w-[6rem] font-semibold hover:bg-green-600 ease-in-out transition-all">Calcular</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="flex flex-col gap-2 border-solid border-[1px] border-slate-100 rounded-md bg-slate-100 p-4">
+            <div class="flex flex-col gap-4 align-middle justify-between md:flex-row">
+                <div id="save-Form-resultBox" class="flex flex-col md:w-4/6">
+                    <span class="font-light text-lg">Puedes ahorrar</span>
+                    <span id="save-Form-result" class="font-bold text-3xl py-1">13.730,62 €</span>
+                    <div class="flex flex-col">
+                        <span class="font-light text-lg">
+                            <span>ahorro</span>
+                            <span id="save-Form-periodic">100,00 € mensual</span>
+                        </span>
+                        <span class="font-light text-lg ms-1 md:ms-0">
+                            <span>durante</span>
+                            <span id="save-Form-period">10 años</span>
+                        </span>
+                    </div>
+                    <span class="border border-slate-300 my-4"></span>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-violet-500 px-2.5 me-1"></span><span class="font-light">Balance inicial:</span>
+                            </div>
+                            <div>
+                                <span id="save-Form-initialBalance" class="font-light">1.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-blue-600 px-2.5 me-1"></span><span class="font-light">Depósitos periódicos:</span>
+                            </div>
+                            <div>
+                                <span id="save-Form-periodicTotal" class="font-light">12.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-lime-500 px-2.5 me-1"></span><span class="font-light">Interés total:</span>
+                            </div>
+                            <div>
+                                <span id="save-Form-interestTotal" class="font-light">730,62 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="time-Form-resultBox" class="flex flex-col md:w-4/6 hidden">
+                    <span class="font-light text-lg">Te llevará</span>
+                    <span id="time-Form-result" class="font-bold text-3xl py-1">7 años 3 meses</span>
+                    <div class="flex flex-col">
+                        <span class="font-light text-lg">
+                            <span>llegar a tu objetivo de </span>
+                            <span id="time-Form-goal">10.000,00€</span>
+                        </span>
+                        <span class="font-light text-lg">
+                            <span>ahorrando</span>
+                            <span id="time-Form-periodic">100€ mensualmente</span>
+                        </span>
+                    </div>
+                    <span class="border border-slate-300 my-4"></span>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-violet-500 px-2.5 me-1"></span><span class="font-light">Balance inicial:</span>
+                            </div>
+                            <div>
+                                <span id="time-Form-initialBalance" class="font-light">1.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-blue-500 px-2.5 me-1"></span><span class="font-light">Depósitos periódicos:</span>
+                            </div>
+                            <div>
+                                <span id="time-Form-periodicTotal" class="font-light">12.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-lime-500 px-2.5 me-1"></span><span class="font-light">Interés total:</span>
+                            </div>
+                            <div>
+                                <span id="time-Form-interestTotal" class="font-light">730,62 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="periodSave-Form-resultBox" class="flex flex-col md:w-4/6 hidden">
+                    <span class="font-light text-lg">Necesitas ahorrar</span>
+                    <span id="periodSave-Form-result" class="font-bold text-3xl py-1">16,27€/mes</span>
+                    <div class="flex flex-col">
+                        <span class="font-light text-lg">
+                            <span>para llegar a tu objetivo de </span>
+                            <span id="periodSave-Form-goal">10.000,00€</span>
+                        </span>
+                        <span class="font-light text-lg">
+                            <span>en un periodo de tiempo de</span>
+                            <span id="periodSave-Form-period">10 años</span>
+                        </span>
+                    </div>
+                    <span class="border border-slate-300 my-4"></span>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-violet-500 px-2.5 me-1"></span><span class="font-light">Balance inicial:</span>
+                            </div>
+                            <div>
+                                <span id="periodSave-Form-initialBalance" class="font-light">1.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-blue-500 px-2.5 me-1"></span><span class="font-light">Depósitos periódicos:</span>
+                            </div>
+                            <div>
+                                <span id="periodSave-Form-periodicTotal" class="font-light">12.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-lime-500 px-2.5 me-1"></span><span class="font-light">Interés total:</span>
+                            </div>
+                            <div>
+                                <span id="periodSave-Form-interestTotal" class="font-light">730,62 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="percentage-Form-resultBox" class="flex flex-col md:w-4/6 hidden">
+                    <span class="font-light text-lg">Necesitas un interés de</span>
+                    <span id="percentage-Form-result" class="font-bold text-3xl py-1">0,005%</span>
+                    <div class="flex flex-col">
+                        <span class="font-light text-lg">
+                            <span>para alcanzar tu objetivo de</span>
+                            <span id="percentage-Form-goal">10.000 €</span>
+                        </span>
+                        <span class="font-light text-lg">
+                            <span>ahorrando</span>
+                            <span id="percentage-Form-periodic">100€ semanalmente</span>
+                        </span>
+                        <span class="font-light text-lg">
+                            <span>durante</span>
+                            <span id="percentage-Form-period">10 años</span>
+                        </span>
+                    </div>
+                    <span class="border border-slate-300 my-4"></span>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-violet-500 px-2.5 me-1"></span><span class="font-light">Balance inicial:</span>
+                            </div>
+                            <div>
+                                <span id="percentage-Form-initialBalance" class="font-light">1.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-blue-500 px-2.5 me-1"></span><span class="font-light">Depósitos periódicos:</span>
+                            </div>
+                            <div>
+                                <span id="percentage-Form-periodicTotal" class="font-light">12.000,00 €</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="bg-lime-500 px-2.5 me-1"></span><span class="font-light">Interés total:</span>
+                            </div>
+                            <div>
+                                <span id="percentage-Form-interestTotal" class="font-light">730,62 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="round-chart-container" class="relative md:w-2/6 h-[25vh] md:h-auto"></div>
+            </div>
+            <div id="bar-chart-container" class="relative h-[30vh]"></div>
+            <div id="result-table" class="relative overflow-x-auto border border-slate-300">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <thead class="text-base bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Año
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Depósitos Periódicos
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Depósitos Totales
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Interés Total
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Balance
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script type="text/javascript" defer>
+        
+    class CompoundCalculator {
+  
+    /**
+     * Cálculo del tiempo estimado en obtener un monto específico de dinero
+     * @param initialAmmount Inversión inicial
+     * @param periodicDeposit Depósito periódico
+     * @param interestRate Interés anual
+     * @param futureAmmount Monto futuro
+     * @param periodType Depósitos de inyectan al inicio o al final de cada período
+     * @param periodFrequency Frecuencia de los depósitos periódicos
+     */
+    timeToGetAmmount(
+      initialAmmount, 
+      periodicDeposit, 
+      interestRate, 
+      futureAmmount, 
+      periodType, 
+      periodFrequency
+    ){
+      
+      let periods = 0;
+      let ammount = initialAmmount;
+    
+      // Ajustar tasa de interés y períodos por año según la frecuencia
+      let adjustedInterestRate = (interestRate / 100);
+      let periodsPerYear = 1;
+    
+      if (periodFrequency === 'monthly') {
+        adjustedInterestRate = (interestRate / 100) / 12;
+        periodsPerYear = 12;
+      } else if (periodFrequency === 'weekly') {
+        adjustedInterestRate = (interestRate / 100) / 52;
+        periodsPerYear = 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        adjustedInterestRate = (interestRate / 100) / 26;
+        periodsPerYear = 26;
+      }
+    
+      let year = 0;
+      let totalDeposits = ammount;
+      let interestEarned = 0;
+    
+      const table = [];
+    
+      while (ammount < futureAmmount) {
+  
+        let depositsThisYear = 0;
+        let interestThisYear = 0;
+    
+        for (let period = 0; period < periodsPerYear; period++) {
+  
+          if (ammount >= futureAmmount) break;
+    
+          // Depósito al inicio del período
+          if (periodType === 'annuity') {        
+            ammount += periodicDeposit;
+            depositsThisYear += periodicDeposit;
+            totalDeposits += periodicDeposit;
+          }
+    
+          const interestThisPeriod = ammount * adjustedInterestRate;
+          ammount += interestThisPeriod;
+          interestThisYear += interestThisPeriod;
+          interestEarned += interestThisPeriod;
+    
+          // Depósito al final del período
+          if (periodType === 'ordinary') {
+            ammount += periodicDeposit;
+            depositsThisYear += periodicDeposit;
+            totalDeposits += periodicDeposit;
+          }
+    
+          periods++;
+  
+        }
+    
+        year++;
+  
+        table.push({
+          year: year,
+          deposits: parseFloat(depositsThisYear.toFixed(2)),
+          totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+          interestEarnedThisYear: parseFloat(interestThisYear.toFixed(2)),
+          interest: parseFloat(interestEarned.toFixed(2)),
+          balance: parseFloat(ammount.toFixed(2)),
+        });
+  
+      }
+  
+      const periodsToTime = this.conversionToTimeString(periods, periodsPerYear, periodFrequency);
+      
+      const totalDepositsFinal = parseFloat(table[table.length - 1].totalDeposits) - initialAmmount;
+      const totalInterest = table[table.length - 1].interest;
+
+
+      return { table, totalPeriods: periods, periodsToTime, totalBalance: 0, totalInterest, totalDeposits: totalDepositsFinal, initialAmmount, totalPeriodicDeposits: totalDepositsFinal};
+    };
+  
+    /**
+     * Cálculo de cuánto dinero almacenaré hasta la fecha indicada con depósitos periódicos al inicio de cada período
+     * @param initialAmmount Inversión inicial
+     * @param periodicDeposit Depósito periódico
+     * @param interestRate Interés anual
+     * @param periods Número total de períodos
+     * @param periodFrequency Frecuencia de los depósitos periódicos
+     * @returns 
+     */
+    compoundAnnuity(
+      initialAmmount, 
+      periodicDeposit, 
+      interestRate, 
+      periods, 
+      periodFrequency
+    ){
+  
+      const table = []; // Para almacenar los datos por año
+      const ammount = initialAmmount;
+      const finalInterest = interestRate;
+  
+      if(periodFrequency === 'monthly'){
+        periods = periods * 12;
+        interestRate = (interestRate / 100) / 12;
+      }else if(periodFrequency === 'weekly'){
+        periods = periods * 52;
+        interestRate = (interestRate / 100) / 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        periods = periods * 26;
+        interestRate = (interestRate / 100) / 26;
+      }else{
+        interestRate = (interestRate / 100);
+      }
+  
+      for (let period = 1; period <= periods; period++) {
+      
+        // Si excedemos el total de períodos, limitarlo
+        if (period > periods) break;
+  
+        const actualDeposits = periodicDeposit * ((Math.pow(1 + interestRate, period) - 1) / interestRate) * (1 + interestRate);
+        const initial = ammount * Math.pow(1 + interestRate, period);
+        const balance = actualDeposits + initial;
+  
+        const totalDeposits = ammount + periodicDeposit * period;
+  
+        const totalInterest = balance - totalDeposits;
+  
+        if(periodFrequency === 'monthly'){
+          if(period % 12 === 0){
+            table.push({
+              year: period / 12,
+              deposits: parseFloat((periodicDeposit * 12).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
+            });
+          }
+        }else if(periodFrequency === 'weekly'){
+          if(period % 52 === 0){
+            table.push({
+              year: period / 52,
+              deposits: parseFloat((periodicDeposit * 52).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
+            });
+          }
+        }else if(periodFrequency === 'bi-weekly'){
+          if(period % 26 === 0){
+            table.push({
+              year: period / 26,
+              deposits: parseFloat((periodicDeposit * 26).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
+            });
+          }
+        }else{
+          table.push({
+            year: period,
+            deposits: parseFloat((periodicDeposit).toFixed(2)),
+            totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+            interest: parseFloat(totalInterest.toFixed(2)),
+            balance: parseFloat(balance.toFixed(2)),
+          });
+        }
+        
+        
+      }
+  
+      const totalDeposits = parseFloat((periodicDeposit * ((Math.pow(1 + interestRate, periods) - 1) / interestRate) * (1 + interestRate)).toFixed(2));
+      const totalInitial = ammount * Math.pow(1 + interestRate, periods);
+      const totalBalance = parseFloat((totalDeposits + totalInitial).toFixed(2));
+      const totalInterest =table[table.length - 1].interest;
+      const totalPeriodicDeposits = parseFloat((periodicDeposit * periods).toFixed(2));
+  
+      return { table, totalPeriods: periods, totalBalance, totalInterest, totalDeposits, initialAmmount, totalPeriodicDeposits, finalInterest };
+  
+    }
+  
+     /**
+     * Cálculo de cuánto dinero almacenaré hasta la fecha indicada con depósitos periódicos al final de cada período
+     * @param initialAmmount Inversión inicial
+     * @param periodicDeposit Depósito periódico
+     * @param interestRate Interés anual
+     * @param periods Número total de períodos
+     * @param periodFrequency Frecuencia de los depósitos periódicos
+     * @returns 
+     */
+     compoundOrdinary(
+      initialAmmount, 
+      periodicDeposit, 
+      interestRate, 
+      periods, 
+      periodFrequency
+    ){
+  
+      const table = [];
+      const ammount = initialAmmount;
+      const finalInterest = interestRate;
+    
+      if(periodFrequency === 'monthly'){
+        periods = periods * 12;
+        interestRate = (interestRate / 100) / 12;
+      }else if(periodFrequency === 'weekly'){
+        periods = periods * 52;
+        interestRate = (interestRate / 100) / 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        periods = periods * 26;
+        interestRate = (interestRate / 100) / 26;
+      }else{
+        interestRate = (interestRate / 100);
+      }
+    
+      let balance = ammount; // Saldo inicial
+      let totalDeposits = ammount; // Depósitos acumulados
+      let totalInterest = 0; // Intereses acumulados
+    
+      for (let period = 1; period <= periods; period++) {
+  
+        // Calcular el interés ganado sobre el saldo actual
+        const interestEarned = balance * interestRate;
+    
+        // Actualizar el saldo con los intereses ganados
+        balance += interestEarned;
+    
+        // Después de acumular intereses, agregar el depósito del período
+        totalDeposits += periodicDeposit;
+        balance += periodicDeposit;
+    
+        // Intereses acumulados hasta ahora
+        totalInterest = balance - totalDeposits;
+  
+          if(periodFrequency === 'monthly'){
+            if(period % 12 === 0){
+              table.push({
+                year: period / 12,
+                deposits: parseFloat((periodicDeposit * 12).toFixed(2)),
+                totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+                interest: parseFloat(totalInterest.toFixed(2)),
+                balance: parseFloat(balance.toFixed(2)),
+              });
+            }
+          }else if(periodFrequency === 'weekly'){
+            if(period % 52 === 0){
+              table.push({
+                year: period / 52,
+                deposits: parseFloat((periodicDeposit * 52).toFixed(2)),
+                totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+                interest: parseFloat(totalInterest.toFixed(2)),
+                balance: parseFloat(balance.toFixed(2)),
+              });
+            }
+          }else if(periodFrequency === 'bi-weekly'){
+            if(period % 26 === 0){
+              table.push({
+                year: period / 26,
+                deposits: parseFloat((periodicDeposit * 26).toFixed(2)),
+                totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+                interest: parseFloat(totalInterest.toFixed(2)),
+                balance: parseFloat(balance.toFixed(2)),
+              });
+            }
+          }else{
+            table.push({
+              year: period,
+              deposits: parseFloat((periodicDeposit).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
+            });
+          }
+      }
+
+      const totalPeriodicDeposits = parseFloat((periodicDeposit * periods).toFixed(2));
+      const totalBalance = parseFloat((balance).toFixed(2));
+  
+      return { table, totalPeriods: periods, totalBalance, totalInterest, totalDeposits, initialAmmount, totalPeriodicDeposits, finalInterest };
+  
+    }
+  
+    /**
+     * Calcular cuánto necesito depositar periódicamente para alcanzar un monto objetivo
+     * @param initialAmmount Inversión inicial
+     * @param goalAmmount Monto objetivo
+     * @param interestRate Interés anual
+     * @param periods Períodos
+     * @param periodType Tipo de períodos
+     * @param periodFrequency Frecuencia de los depósitos periódicos
+     * @returns 
+     */
+    depositToGetAmmount(
+      initialAmmount, 
+      goalAmmount, 
+      interestRate, 
+      periods, 
+      periodType, 
+      periodFrequency
+    ){
+  
+      let newPeriods = periods;
+      let newInterestRate = (interestRate / 100);
+  
+      if(periodFrequency === 'monthly'){
+        newPeriods = periods * 12;
+        newInterestRate = (interestRate / 100) / 12;
+      }else if(periodFrequency === 'weekly'){
+        newPeriods = periods * 52;
+        newInterestRate = (interestRate / 100) / 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        newPeriods = periods * 26;
+        newInterestRate = (interestRate / 100) / 26;
+      }
+  
+      // Calcular el denominador base
+      const baseDenominator = (Math.pow(1 + newInterestRate, newPeriods) - 1) / newInterestRate;
+      const denominator = periodType === 'annuity' ? baseDenominator * (1 + newInterestRate) : baseDenominator;
+  
+      // Calcular el depósito mensual necesario
+      const numerator = goalAmmount - initialAmmount * Math.pow(1 + newInterestRate, newPeriods);
+      const depositGoal = numerator / denominator;
+  
+      if(periodType === 'annuity'){
+        return this.compoundAnnuity(initialAmmount, depositGoal, interestRate, periods, periodFrequency);
+      }else{
+        return this.compoundOrdinary(initialAmmount, depositGoal, interestRate, periods, periodFrequency);
+      }
+      
+    }
+  
+    /**
+     * Calcular el interés necesario para alcanzar un monto objetivo con depósitos periódicos
+     * @param initialAmmount Inversión inicial	
+     * @param periodicDeposit Deposito periódicos
+     * @param goalAmmount Monto objetivo
+     * @param periods Períodos
+     * @param periodFrequency Frecuencia de los depósitos periódicos
+     * @param periodType Tipo de períodos
+     * @param precision Precisión deseada para la tasa
+     * @returns 
+     */
+    interestToGetAmmount(
+      initialAmmount, 
+      periodicDeposit, 
+      goalAmmount, 
+      periods, 
+      periodFrequency, 
+      periodType,
+      precision = 1e-6
+    ){
+      let minAnualInterest = 0;
+      let maxAnualInterest = 100;
+  
+      while((maxAnualInterest - minAnualInterest) > precision){
+        const midAnualInterest = (minAnualInterest + maxAnualInterest) / 2;
+  
+        if(periodType === 'annuity'){
+          const futureAmmount = this.compoundAnnuity(initialAmmount, periodicDeposit, midAnualInterest, periods, periodFrequency).totalBalance;
+          if(futureAmmount < goalAmmount){
+            minAnualInterest = midAnualInterest;
+          }else{
+            maxAnualInterest = midAnualInterest;
+          }
+        }else{
+          const futureAmmount = this.compoundOrdinary(initialAmmount, periodicDeposit, midAnualInterest, periods, periodFrequency).totalBalance;
+          if(futureAmmount < goalAmmount){
+            minAnualInterest = midAnualInterest;
+          }else{
+            maxAnualInterest = midAnualInterest;
+          }
+        }
+      }
+  
+      const finalInterest = ((minAnualInterest + maxAnualInterest) / 2);
+  
+      if(periodType === 'annuity'){
+        return  this.compoundAnnuity(initialAmmount, periodicDeposit, finalInterest, periods, periodFrequency)
+      }else{
+        return this.compoundOrdinary(initialAmmount, periodicDeposit, finalInterest, periods, periodFrequency)
+      }
+  
+    }
+  
+    /**
+     * Convierte los periodos a una cadena de texto con el tiempo estimado
+     * @param periods Número de periodos
+     * @param periodsPerYear Número de periodos por año, depende de si los ingresos son mensuales, semanales o anuales
+     * @param periodFrequency Frecuencia de los depósitos periódicos
+     * @returns string con el tiempo estimado
+     */
+    conversionToTimeString(periods, periodsPerYear, periodFrequency) {
+  
+      const years = Math.floor(periods / periodsPerYear); // Años completos
+      const remainingPeriods = periods % periodsPerYear; // Períodos restantes
+      let periodsToTime = '';
+  
+  
+      if (periodFrequency === 'anual') {
+  
+        periodsToTime = `${years} años`;
+  
+      } else if (periodFrequency === 'monthly') {
+  
+        const totalMonths = years * 12 + remainingPeriods; // Convertir todo a meses
+        const correctedYears = Math.floor(totalMonths / 12);
+        const correctedMonths = totalMonths % 12;
+  
+        //Si hay meses restantes, se agrega años y meses
+        if(correctedMonths > 0){
+          periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'} y ${correctedMonths} ${correctedMonths > 1 ? 'meses' : 'mes'}`;
+        }else{
+          periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}`;
+        }
+  
+      } else if (periodFrequency === 'weekly') {
+        
+        const totalWeeks = years * 52 + remainingPeriods; // Convertir todo a semanas
+        let correctedYears = Math.floor(totalWeeks / 52);
+        const remainingWeeks = totalWeeks % 52;
+        let correctedMonths = Math.floor(remainingWeeks / 4); // Convertir semanas restantes a meses
+        const finalWeeks = remainingWeeks % 4;
+  
+        if(correctedMonths >= 12){
+          correctedYears += Math.floor(correctedMonths / 12);
+          correctedMonths = Math.floor(correctedMonths % 12);
+        }
+  
+        if(correctedMonths > 0){
+          
+          if(finalWeeks > 0){
+            periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}, ${correctedMonths} ${correctedMonths > 1 ? 'meses' : 'mes'} y ${finalWeeks} ${finalWeeks > 1 ? 'semanas' : 'semana'}`;
+          }else{
+            periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'} y ${correctedMonths} ${correctedMonths > 1 ? 'meses' : 'mes'}`;
+          }
+  
+        }else{
+  
+          if(finalWeeks > 0){
+            periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'} y ${finalWeeks} ${finalWeeks > 1 ? 'semanas' : 'semana'}`;
+          }else{
+            periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}`;
+          }
+  
+        }
+  
+      } else if (periodFrequency === 'bi-weekly') {
+
+        const totalWeeks = years * 52 + remainingPeriods * 2; // Total semanas considerando 2 semanas por período
+        let correctedYears = Math.floor(totalWeeks / 52); // Años completos (52 semanas por año)
+        const remainingWeeks = totalWeeks % 52; // Semanas restantes
+    
+        let correctedMonths = Math.floor(remainingWeeks / 4.33); // Convertir semanas a meses (~4.33 semanas por mes)
+        const finalWeeks = Math.round(remainingWeeks % 4.33); // Semanas finales restantes
+    
+        // Ajustar si los meses exceden 12
+        if (correctedMonths >= 12) {
+            correctedYears += Math.floor(correctedMonths / 12);
+            correctedMonths = correctedMonths % 12;
+        }
+    
+        // Construcción del texto de salida
+        if (correctedMonths > 0) {
+            if (finalWeeks > 0) {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}, ${correctedMonths} ${correctedMonths > 1 ? 'meses' : 'mes'} y ${finalWeeks} ${finalWeeks > 1 ? 'semanas' : 'semana'}`;
+            } else {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'} y ${correctedMonths} ${correctedMonths > 1 ? 'meses' : 'mes'}`;
+            }
+        } else {
+            if (finalWeeks > 0) {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'} y ${finalWeeks} ${finalWeeks > 1 ? 'semanas' : 'semana'}`;
+            } else {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}`;
+            }
+        }
+      }    
+  
+      return periodsToTime;
+  
+    };
+    
+}
+
+function handleInput(e){
+    const currency = ['initialBalance', 'periodicDeposit', 'saveGoal'];
+    //const selectors = ['periodicDeposit', 'periodicType'];
+    const percentage = ['interestRate'];
+    const number = ['periods'];
+    const floatRegex = new RegExp(/^\d+(.\d{1,2})?$/);
+    const intRegex = new RegExp(/^[0-9]+$/);
+    const inputName = e.target.name;
+
+    if(currency.includes(inputName)){
+
+        if (e.target.value.length <= 0) {
+            e.target.classList.add('error-input');
+            e.target.setCustomValidity("Campo requerido");
+        } else {
+            if (floatRegex.test(e.target.value)) {
+                e.target.setCustomValidity("");
+                e.target.classList.remove('error-input');
+            } else {
+                e.target.classList.add('error-input');
+                e.target.setCustomValidity("La cantidad introducida no es válida");
+            }
+        }
+
+    }else if(percentage.includes(inputName)){
+        const min = parseFloat(e.target.min.replaceAll(',','.'));
+        const max = parseFloat(e.target.max.replaceAll(',','.'));
+
+        if (e.target.value.length <= 0) {
+            e.target.classList.add('error-input');
+            e.target.setCustomValidity("Campo requerido");
+        }else{
+            if (floatRegex.test(e.target.value)){
+                e.target.setCustomValidity("");
+                e.target.classList.remove('error-input');
+                
+                const value = parseFloat(e.target.value.replaceAll(',','.'));
+                if(value <= min){
+                    e.target.value = min
+                    if(value < min){
+                        e.target.parentElement.parentElement.querySelector(".error").innerText = `El mínimo es ${min}%`;
+                    }
+                }else if(value >= max){
+                    e.target.value = max
+                    if(value > max){
+                        e.target.parentElement.parentElement.querySelector(".error").innerText = `El máximo es ${max}%`;
+                    }
+                }else{
+                    e.target.parentElement.parentElement.querySelector(".error").innerText = ``;
+                }
+            }else{
+                e.target.setCustomValidity("La cantidad introducida no es válida");
+                e.target.classList.add('error-input');
+            }
+        }
+
+    }else if(number.includes(inputName)){
+
+        const min = parseInt(e.target.min);
+        const max = parseInt(e.target.max);
+
+        if(e.target.value.length <= 0){
+            e.target.classList.add('error-input');
+            e.target.setCustomValidity("Campo requerido");  
+        }else{
+
+            if (intRegex.test(e.target.value)){
+                e.target.setCustomValidity("");
+                e.target.classList.remove('error-input');
+                
+                const value = parseInt(e.target.value.replaceAll(',','.'));
+                if(value <= min){
+                    e.target.value = min
+                    if(value < min){
+                        e.target.parentElement.parentElement.querySelector(".error").innerText = `El mínimo es ${min} año(s)`;
+                    }
+                }else if(value > max){
+                    e.target.value = max
+                    if(value > max){
+                        e.target.parentElement.parentElement.querySelector(".error").innerText = `El máximo es ${max} año(s)`;
+                    }
+                }else{
+                    e.target.parentElement.parentElement.querySelector(".error").innerText = ``;
+                }
+            }else{
+                e.target.setCustomValidity("La cantidad introducida no es válida");
+                e.target.classList.add('error-input');
+            }
+
+        }
+
+    }
+
+    e.target.reportValidity();
+}
+
+const calculator = document.querySelector('#compound-calculator');
+const calculatorType = calculator.querySelector('#calculatorType');
+const calculatorForms = calculator.querySelectorAll('[id$="-Form"]');
+const circleCanvas = document.querySelector('#round-chart-container');
+const resumeChart = echarts.init(circleCanvas, null, {useDirtyRect: false});
+const barCanvas = document.querySelector('#bar-chart-container');
+const barChart = echarts.init(barCanvas, null, {useDirtyRect: false});
+const tableBody = document.querySelector('#result-table tbody');
+
+calculatorType.addEventListener('change', (e)=>{
+    calculatorForms.forEach(form => form.classList.add('hidden'));
+    const selected = e.target.value;
+    calculator.querySelector(`#${selected}-Form`).classList.remove('hidden');
+    calculator.querySelector(`#${selected}-Form button[type="submit"]`).click();
+});
+
+calculatorForms.forEach(form =>{ 
+    form.addEventListener('input', handleInput)
+    form.addEventListener('blur', handleInput)
+    form.addEventListener('submit', calculate)
+});
+
+
+function calculate(e){
+    e.preventDefault();
+    const valid = e.target.checkValidity();
+    if(valid){
+        const calculator = new CompoundCalculator();
+        const form = e.target.id;
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        
+        switch(form){
+          case 'save-Form':
+              if(data.periodicMoment === 'begin'){
+                const result = calculator.compoundAnnuity(
+                  parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                  parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                  parseFloat(data.interestRate.replaceAll(',','.')), 
+                  parseInt(data.periods), 
+                  data.periodicType
+                );
+                createRoundedChart(result);
+                createBarChart(result);
+                fillTable(result);
+                fillResults(form, result, data);
+              }else{
+                const result = calculator.compoundOrdinary(
+                  parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                  parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                  parseFloat(data.interestRate.replaceAll(',','.')), 
+                  parseInt(data.periods), 
+                  data.periodicType
+                );
+                createRoundedChart(result);
+                createBarChart(result);
+                fillTable(result);
+                fillResults(form, result, data);
+              }
+            break;
+
+          case 'time-Form':
+            if(data.periodicMoment === 'begin'){
+              const result = calculator.timeToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                'annuity',
+                data.periodicType
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }else{
+              const result = calculator.timeToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                'ordinary',
+                data.periodicType
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }
+            break;
+
+          case 'percentage-Form':
+            if(data.periodicMoment === 'begin'){
+              const result = calculator.interestToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                parseInt(data.periods),
+                data.periodicType,
+                'annuity'
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }else{
+              const result = calculator.interestToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                parseInt(data.periods),
+                data.periodicType,
+                'ordinary'
+              );
+              
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }
+          break;
+
+          case 'periodSave-Form':
+            if(data.periodicMoment === 'begin'){
+              const result = calculator.depositToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseInt(data.periods),
+                'annuity',
+                data.periodicType
+              );
+              
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }else{
+              const result = calculator.depositToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseInt(data.periods),
+                'ordinary',
+                data.periodicType
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }
+          break;
+        }
+    }
+}
+
+function createRoundedChart(data){
+  const circleChartOptions = {
+    title : {
+        show: false
+    },
+    legend: {
+        show: false
+    },
+    grid: {
+        top: 0,    
+        bottom: 0, 
+        left: 0,   
+        right: 0,   
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: function (params) {
+            // Convertimos el valor numérico a string formateado
+            const formattedValue = params.value.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+            return `
+                <span style="display:inline-block;width:10px;height:10px;background:${params.color};border-radius:50%;margin-right:5px;"></span>
+                <em>${params.name}</em><br>
+                <strong>${formattedValue}</strong>
+            `;
+        }
+    },
+    series: [
+        {
+          type: 'pie',
+          radius: '90%',
+          data: [
+            { value: data.initialAmmount, name: 'Balance Inicial', itemStyle: { color: '#8b5cf6'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
+            { value: data.totalPeriodicDeposits, name: 'Depósitos Periódicos', itemStyle: {color: '#2563eb'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
+            { value: data.totalInterest, name: 'Interés Total', itemStyle: {color: '#84cc16'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+    ]
+  };
+
+  resumeChart.setOption(circleChartOptions);
+  window.addEventListener('resize', resumeChart.resize);
+}
+
+function createBarChart(data){
+  
+  const barChartOptions = {
+    title : {
+        show: false
+    },
+    legend: {
+        show: false
+    },
+    grid:{
+        containLabel: true,
+        left: 10,
+        right: 10,
+        top: 40,
+        bottom: 40,
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: function (params) {
+            // Convertimos el valor numérico a string formateado
+            const formattedValue = params.value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+            return `
+                <span style="display:inline-block;width:10px;height:10px;background:${params.color};border-radius:50%;margin-right:5px;"></span>
+                <em>${params.seriesName}</em><br>
+                <strong>${formattedValue}</strong>
+            `;
+        }
+    },
+    series : (() => {
+      const series = [];
+      const initialBalance = {
+        data: (()=>{ 
+          const balanceData = [];
+          for(let i = 0; i < data.table.length; i++){ balanceData.push(data.initialAmmount) }
+          return balanceData;
+        })(),
+        type: 'bar',
+        stack: 'a',
+        name: 'Balance Inicial',
+        color: '#8b5cf6',
+        barCategoryGap: '10%'
+      }
+      
+      const deposits = {
+        data: (()=>{ 
+          const depositsData = [];
+          let totalDeposit = 0;
+          for(let i = 0; i < data.table.length; i++){
+            totalDeposit += data.table[i].deposits;
+            depositsData.push(totalDeposit);
+          }
+          return depositsData;
+        })(),
+        type: 'bar',
+        stack: 'a',
+        name: 'Depósitos Periódicos',
+        color: '#2563eb',
+        barCategoryGap: '10%'
+      }
+
+      const interest = {
+        data: (()=>{ 
+          const interestData = [];
+          data.table.forEach(element => interestData.push(element.interest))
+          return interestData;
+        })(),
+        type: 'bar',
+        stack: 'a',
+        name: 'Interés Total',
+        color: '#84cc16',
+        barCategoryGap: '10%'
+      }
+      series.push(initialBalance, deposits, interest);
+      return series;
+    })(),
+    xAxis: {
+      type: 'category',
+      data: (() =>{
+        const category = [];
+        for( let i = 0; i < data.table.length; i++){
+          category.push(`${i + 1}`);
+        }
+        return category;
+      })()
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+          formatter: function (value) {
+              return value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+          }
+      },
+      splitLine: {
+          show: true
+      }
+    },
+    media: [
+      {
+        query: {
+          maxWidth: 500 // Aplicar si el ancho es menor o igual a 500px.
+        },
+        option: {
+          grid: {
+            containLabel: false,
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 40,
+          },
+          yAxis: {
+            axisLabel:{
+              show: false
+            },
+            splitLine: {
+              show: false
+            }
+          }
+        }
+      },
+    ]
+  }
+
+  barChart.setOption(barChartOptions);
+  window.addEventListener('resize', barChart.resize);
+
+};
+
+function fillTable(data){
+  tableBody.innerHTML = '';
+  data.table.forEach(element => {
+    tableBody.innerHTML += `
+      <tr class="bg-white hover:bg-slate-50 border-b">
+        <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+          ${element.year}
+        </th>
+        <td class="px-6 py-4">
+          ${element.deposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+        <td class="px-6 py-4">
+            ${element.totalDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+        <td class="px-6 py-4">
+            ${(Math.abs(element.interest)).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+        <td class="px-6 py-4">
+            ${element.balance.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+      </tr>
+    `
+  });
+}
+
+function fillResults(formType, result, data){
+  
+  switch (formType) {
+    case 'save-Form':
+
+        document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+        
+        
+        if(data.periodicType === 'weekly'){
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} semanal`
+        }else if(data.periodicType === 'monthly'){
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} mensual`
+        }else if(data.periodicType === 'bi-weekly'){
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} bisemanal`
+        }else{
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} anual`
+        }
+
+        document.querySelector(`#${formType}-result`).innerText = result.totalBalance.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+        document.querySelector(`#${formType}-period`).innerText = `${result.table.length} años`;
+        document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+        document.querySelector(`#${formType}-periodicTotal`).innerText = result.totalPeriodicDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+        document.querySelector(`#${formType}-interestTotal`).innerText = result.totalInterest.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+        document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+
+      break;
+
+    case 'time-Form':
+
+      document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+
+      if(data.periodicType === 'weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} semanal`
+      }else if(data.periodicType === 'monthly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} mensual`
+      }else if(data.periodicType === 'bi-weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} bisemanal`
+      }else{
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} anual`
+      }
+
+      document.querySelector(`#${formType}-result`).innerText = result.periodsToTime;
+      document.querySelector(`#${formType}-goal`).innerText = parseFloat(data.saveGoal.replaceAll(',','.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-periodicTotal`).innerText = result.totalPeriodicDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-interestTotal`).innerText = result.totalInterest.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+      document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+
+    break;
+
+    case 'periodSave-Form':
+      
+    document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+    
+    if(data.periodicType === 'weekly'){
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits / 52).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /semana</span>`
+    }else if(data.periodicType === 'monthly'){
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits / 12).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /mes</span>`
+    }else if(data.periodicType === 'bi-weekly'){
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits / 26).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /bisemanal</span>`
+    }else{
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /año</span>`
+    }
+
+    document.querySelector(`#${formType}-goal`).innerText = parseFloat(data.saveGoal.replaceAll(',','.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+    document.querySelector(`#${formType}-period`).innerText = `${result.table.length} años`;
+    document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+    document.querySelector(`#${formType}-periodicTotal`).innerText = result.totalPeriodicDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+    document.querySelector(`#${formType}-interestTotal`).innerText = result.totalInterest.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+    document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+
+    break;
+
+    case 'percentage-Form':
+      document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+
+      if(data.periodicType === 'weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} semanal`
+      }else if(data.periodicType === 'monthly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} mensual`
+      }else if(data.periodicType === 'bi-weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} bisemanal`
+      }else{
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} anual`
+      }
+    
+      document.querySelector(`#${formType}-result`).innerText = `${result.finalInterest.toFixed(3)}%`;
+      document.querySelector(`#${formType}-goal`).innerText = parseFloat(data.saveGoal.replaceAll(',','.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-period`).innerText = `${result.table.length} años`;
+      document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-interestTotal`).innerText = (Math.abs(result.totalInterest)).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+      document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+    break;
+  }
+
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  calculatorForms.forEach(form => {
+    if(form.id === 'save-Form'){
+      form.querySelector('button[type="submit"]').click();
+    }
+  })
+})
+
+
+
+
+
+
+
+
+
+    </script>
+    
+    <!--Fin contenedor calculadora-->

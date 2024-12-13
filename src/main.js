@@ -22,19 +22,22 @@ class CompoundCalculator {
       let ammount = initialAmmount;
     
       // Ajustar tasa de interés y períodos por año según la frecuencia
-      let adjustedInterestRate = interestRate;
+      let adjustedInterestRate = (interestRate / 100);
       let periodsPerYear = 1;
     
-      if (periodFrequency === 'month') {
-        adjustedInterestRate = interestRate / 12;
+      if (periodFrequency === 'monthly') {
+        adjustedInterestRate = (interestRate / 100) / 12;
         periodsPerYear = 12;
-      } else if (periodFrequency === 'week') {
-        adjustedInterestRate = interestRate / 52;
+      } else if (periodFrequency === 'weekly') {
+        adjustedInterestRate = (interestRate / 100) / 52;
         periodsPerYear = 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        adjustedInterestRate = (interestRate / 100) / 26;
+        periodsPerYear = 26;
       }
     
       let year = 0;
-      let totalDeposits = 0;
+      let totalDeposits = ammount;
       let interestEarned = 0;
     
       const table = [];
@@ -75,18 +78,22 @@ class CompoundCalculator {
   
         table.push({
           year: year,
-          deposits: depositsThisYear.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-          totalDeposits: totalDeposits.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-          interest: interestThisYear.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-          totalInterest: interestEarned.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-          balance: ammount.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
+          deposits: parseFloat(depositsThisYear.toFixed(2)),
+          totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+          interestEarnedThisYear: parseFloat(interestThisYear.toFixed(2)),
+          interest: parseFloat(interestEarned.toFixed(2)),
+          balance: parseFloat(ammount.toFixed(2)),
         });
   
       }
   
       const periodsToTime = this.conversionToTimeString(periods, periodsPerYear, periodFrequency);
-  
-      return { table, totalPeriods: periods, periodsToTime };
+      
+      const totalDepositsFinal = parseFloat(table[table.length - 1].totalDeposits) - initialAmmount;
+      const totalInterest = table[table.length - 1].interest;
+
+
+      return { table, totalPeriods: periods, periodsToTime, totalBalance: 0, totalInterest, totalDeposits: totalDepositsFinal, initialAmmount, totalPeriodicDeposits: totalDepositsFinal};
     };
   
     /**
@@ -108,13 +115,19 @@ class CompoundCalculator {
   
       const table = []; // Para almacenar los datos por año
       const ammount = initialAmmount;
+      const finalInterest = interestRate;
   
-      if(periodFrequency === 'month'){
+      if(periodFrequency === 'monthly'){
         periods = periods * 12;
-        interestRate = interestRate / 12;
-      }else if(periodFrequency === 'week'){
+        interestRate = (interestRate / 100) / 12;
+      }else if(periodFrequency === 'weekly'){
         periods = periods * 52;
-        interestRate = interestRate / 52;
+        interestRate = (interestRate / 100) / 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        periods = periods * 26;
+        interestRate = (interestRate / 100) / 26;
+      }else{
+        interestRate = (interestRate / 100);
       }
   
       for (let period = 1; period <= periods; period++) {
@@ -130,47 +143,56 @@ class CompoundCalculator {
   
         const totalInterest = balance - totalDeposits;
   
-        if(periodFrequency === 'month'){
+        if(periodFrequency === 'monthly'){
           if(period % 12 === 0){
             table.push({
               year: period / 12,
-              deposits: (periodicDeposit * 12).toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              totalDeposits: totalDeposits.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              interest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              totalInterest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              balance: balance.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
+              deposits: parseFloat((periodicDeposit * 12).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
             });
           }
-        }else if(periodFrequency === 'week'){
+        }else if(periodFrequency === 'weekly'){
           if(period % 52 === 0){
             table.push({
               year: period / 52,
-              deposits: (periodicDeposit * 52).toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              totalDeposits: totalDeposits.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              interest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              totalInterest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              balance: balance.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
+              deposits: parseFloat((periodicDeposit * 52).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
+            });
+          }
+        }else if(periodFrequency === 'bi-weekly'){
+          if(period % 26 === 0){
+            table.push({
+              year: period / 26,
+              deposits: parseFloat((periodicDeposit * 26).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
             });
           }
         }else{
           table.push({
             year: period,
-            deposits: periodicDeposit.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-            totalDeposits: totalDeposits.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-            interest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-            totalInterest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-            balance: balance.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
+            deposits: parseFloat((periodicDeposit).toFixed(2)),
+            totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+            interest: parseFloat(totalInterest.toFixed(2)),
+            balance: parseFloat(balance.toFixed(2)),
           });
         }
         
         
       }
   
-      const totalDeposits = periodicDeposit * ((Math.pow(1 + interestRate, periods) - 1) / interestRate) * (1 + interestRate);
+      const totalDeposits = parseFloat((periodicDeposit * ((Math.pow(1 + interestRate, periods) - 1) / interestRate) * (1 + interestRate)).toFixed(2));
       const totalInitial = ammount * Math.pow(1 + interestRate, periods);
-      const totalBalance = totalDeposits + totalInitial;
+      const totalBalance = parseFloat((totalDeposits + totalInitial).toFixed(2));
+      const totalInterest =table[table.length - 1].interest;
+      const totalPeriodicDeposits = parseFloat((periodicDeposit * periods).toFixed(2));
   
-      return { table, totalPeriods: periods, totalBalance };
+      return { table, totalPeriods: periods, totalBalance, totalInterest, totalDeposits, initialAmmount, totalPeriodicDeposits, finalInterest };
   
     }
   
@@ -193,14 +215,19 @@ class CompoundCalculator {
   
       const table = [];
       const ammount = initialAmmount;
+      const finalInterest = interestRate;
     
-      // Ajustar frecuencia y tasa de interés
-      if (periodFrequency === 'month') {
-        periods = periods * 12; // Convertir años a meses
-        interestRate = interestRate / 12; // Tasa mensual
-      } else if (periodFrequency === 'week') {
-        periods = periods * 52; // Convertir años a semanas
-        interestRate = interestRate / 52; // Tasa semanal
+      if(periodFrequency === 'monthly'){
+        periods = periods * 12;
+        interestRate = (interestRate / 100) / 12;
+      }else if(periodFrequency === 'weekly'){
+        periods = periods * 52;
+        interestRate = (interestRate / 100) / 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        periods = periods * 26;
+        interestRate = (interestRate / 100) / 26;
+      }else{
+        interestRate = (interestRate / 100);
       }
     
       let balance = ammount; // Saldo inicial
@@ -222,44 +249,51 @@ class CompoundCalculator {
         // Intereses acumulados hasta ahora
         totalInterest = balance - totalDeposits;
   
-          if(periodFrequency === 'month'){
+          if(periodFrequency === 'monthly'){
             if(period % 12 === 0){
-              // Agregar datos a la tabla
               table.push({
-                  year: period / 12,
-                  deposits: (periodicDeposit * 12).toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                  totalDeposits: totalDeposits.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                  interest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                  totalInterest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                  balance: balance.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
+                year: period / 12,
+                deposits: parseFloat((periodicDeposit * 12).toFixed(2)),
+                totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+                interest: parseFloat(totalInterest.toFixed(2)),
+                balance: parseFloat(balance.toFixed(2)),
               });
             }
-          }else if(periodFrequency === 'week'){
+          }else if(periodFrequency === 'weekly'){
             if(period % 52 === 0){
-              // Agregar datos a la tabla
               table.push({
                 year: period / 52,
-                deposits: (periodicDeposit * 52).toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                totalDeposits: totalDeposits.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                interest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                totalInterest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-                balance: balance.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
+                deposits: parseFloat((periodicDeposit * 52).toFixed(2)),
+                totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+                interest: parseFloat(totalInterest.toFixed(2)),
+                balance: parseFloat(balance.toFixed(2)),
+              });
+            }
+          }else if(periodFrequency === 'bi-weekly'){
+            if(period % 26 === 0){
+              table.push({
+                year: period / 26,
+                deposits: parseFloat((periodicDeposit * 26).toFixed(2)),
+                totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+                interest: parseFloat(totalInterest.toFixed(2)),
+                balance: parseFloat(balance.toFixed(2)),
               });
             }
           }else{
-            // Agregar datos a la tabla
             table.push({
               year: period,
-              deposits: periodicDeposit.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              totalDeposits: totalDeposits.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              interest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              totalInterest: totalInterest.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
-              balance: balance.toLocaleString('es-ES', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' }),
+              deposits: parseFloat((periodicDeposit).toFixed(2)),
+              totalDeposits: parseFloat(totalDeposits.toFixed(2)),
+              interest: parseFloat(totalInterest.toFixed(2)),
+              balance: parseFloat(balance.toFixed(2)),
             });
           }
-        }
+      }
+
+      const totalPeriodicDeposits = parseFloat((periodicDeposit * periods).toFixed(2));
+      const totalBalance = parseFloat((balance).toFixed(2));
   
-        return { table, totalPeriods: periods, totalBalance: balance };
+      return { table, totalPeriods: periods, totalBalance, totalInterest, totalDeposits, initialAmmount, totalPeriodicDeposits, finalInterest };
   
     }
   
@@ -283,14 +317,17 @@ class CompoundCalculator {
     ){
   
       let newPeriods = periods;
-      let newInterestRate = interestRate;
+      let newInterestRate = (interestRate / 100);
   
-      if(periodFrequency === 'month'){
+      if(periodFrequency === 'monthly'){
         newPeriods = periods * 12;
-        newInterestRate = interestRate / 12;
-      }else if(periodFrequency === 'week'){
+        newInterestRate = (interestRate / 100) / 12;
+      }else if(periodFrequency === 'weekly'){
         newPeriods = periods * 52;
-        newInterestRate = interestRate / 52;
+        newInterestRate = (interestRate / 100) / 52;
+      }else if(periodFrequency === 'bi-weekly'){
+        newPeriods = periods * 26;
+        newInterestRate = (interestRate / 100) / 26;
       }
   
       // Calcular el denominador base
@@ -329,9 +366,8 @@ class CompoundCalculator {
       periodType,
       precision = 1e-6
     ){
-      
       let minAnualInterest = 0;
-      let maxAnualInterest = 10;
+      let maxAnualInterest = 100;
   
       while((maxAnualInterest - minAnualInterest) > precision){
         const midAnualInterest = (minAnualInterest + maxAnualInterest) / 2;
@@ -356,9 +392,9 @@ class CompoundCalculator {
       const finalInterest = ((minAnualInterest + maxAnualInterest) / 2);
   
       if(periodType === 'annuity'){
-        return this.compoundAnnuity(initialAmmount, periodicDeposit, finalInterest, periods, periodFrequency);
+        return  this.compoundAnnuity(initialAmmount, periodicDeposit, finalInterest, periods, periodFrequency)
       }else{
-        return this.compoundOrdinary(initialAmmount, periodicDeposit, finalInterest, periods, periodFrequency);
+        return this.compoundOrdinary(initialAmmount, periodicDeposit, finalInterest, periods, periodFrequency)
       }
   
     }
@@ -377,11 +413,11 @@ class CompoundCalculator {
       let periodsToTime = '';
   
   
-      if (periodFrequency === 'year') {
+      if (periodFrequency === 'anual') {
   
         periodsToTime = `${years} años`;
   
-      } else if (periodFrequency === 'month') {
+      } else if (periodFrequency === 'monthly') {
   
         const totalMonths = years * 12 + remainingPeriods; // Convertir todo a meses
         const correctedYears = Math.floor(totalMonths / 12);
@@ -394,7 +430,7 @@ class CompoundCalculator {
           periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}`;
         }
   
-      } else if (periodFrequency === 'week') {
+      } else if (periodFrequency === 'weekly') {
         
         const totalWeeks = years * 52 + remainingPeriods; // Convertir todo a semanas
         let correctedYears = Math.floor(totalWeeks / 52);
@@ -425,7 +461,36 @@ class CompoundCalculator {
   
         }
   
-      }
+      } else if (periodFrequency === 'bi-weekly') {
+
+        const totalWeeks = years * 52 + remainingPeriods * 2; // Total semanas considerando 2 semanas por período
+        let correctedYears = Math.floor(totalWeeks / 52); // Años completos (52 semanas por año)
+        const remainingWeeks = totalWeeks % 52; // Semanas restantes
+    
+        let correctedMonths = Math.floor(remainingWeeks / 4.33); // Convertir semanas a meses (~4.33 semanas por mes)
+        const finalWeeks = Math.round(remainingWeeks % 4.33); // Semanas finales restantes
+    
+        // Ajustar si los meses exceden 12
+        if (correctedMonths >= 12) {
+            correctedYears += Math.floor(correctedMonths / 12);
+            correctedMonths = correctedMonths % 12;
+        }
+    
+        // Construcción del texto de salida
+        if (correctedMonths > 0) {
+            if (finalWeeks > 0) {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}, ${correctedMonths} ${correctedMonths > 1 ? 'meses' : 'mes'} y ${finalWeeks} ${finalWeeks > 1 ? 'semanas' : 'semana'}`;
+            } else {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'} y ${correctedMonths} ${correctedMonths > 1 ? 'meses' : 'mes'}`;
+            }
+        } else {
+            if (finalWeeks > 0) {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'} y ${finalWeeks} ${finalWeeks > 1 ? 'semanas' : 'semana'}`;
+            } else {
+                periodsToTime = `${correctedYears} ${correctedYears > 1 ? 'años' : 'año'}`;
+            }
+        }
+      }    
   
       return periodsToTime;
   
@@ -536,11 +601,13 @@ const circleCanvas = document.querySelector('#round-chart-container');
 const resumeChart = echarts.init(circleCanvas, null, {useDirtyRect: false});
 const barCanvas = document.querySelector('#bar-chart-container');
 const barChart = echarts.init(barCanvas, null, {useDirtyRect: false});
+const tableBody = document.querySelector('#result-table tbody');
 
 calculatorType.addEventListener('change', (e)=>{
     calculatorForms.forEach(form => form.classList.add('hidden'));
     const selected = e.target.value;
     calculator.querySelector(`#${selected}-Form`).classList.remove('hidden');
+    calculator.querySelector(`#${selected}-Form button[type="submit"]`).click();
 });
 
 calculatorForms.forEach(form =>{ 
@@ -554,15 +621,137 @@ function calculate(e){
     e.preventDefault();
     const valid = e.target.checkValidity();
     if(valid){
+        const calculator = new CompoundCalculator();
+        const form = e.target.id;
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
-        console.log(data);
+        
+        switch(form){
+          case 'save-Form':
+              if(data.periodicMoment === 'begin'){
+                const result = calculator.compoundAnnuity(
+                  parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                  parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                  parseFloat(data.interestRate.replaceAll(',','.')), 
+                  parseInt(data.periods), 
+                  data.periodicType
+                );
+                createRoundedChart(result);
+                createBarChart(result);
+                fillTable(result);
+                fillResults(form, result, data);
+              }else{
+                const result = calculator.compoundOrdinary(
+                  parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                  parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                  parseFloat(data.interestRate.replaceAll(',','.')), 
+                  parseInt(data.periods), 
+                  data.periodicType
+                );
+                createRoundedChart(result);
+                createBarChart(result);
+                fillTable(result);
+                fillResults(form, result, data);
+              }
+            break;
+
+          case 'time-Form':
+            if(data.periodicMoment === 'begin'){
+              const result = calculator.timeToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                'annuity',
+                data.periodicType
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }else{
+              const result = calculator.timeToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')), 
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                'ordinary',
+                data.periodicType
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }
+            break;
+
+          case 'percentage-Form':
+            if(data.periodicMoment === 'begin'){
+              const result = calculator.interestToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                parseInt(data.periods),
+                data.periodicType,
+                'annuity'
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }else{
+              const result = calculator.interestToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.periodicDeposit.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')),
+                parseInt(data.periods),
+                data.periodicType,
+                'ordinary'
+              );
+              
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }
+          break;
+
+          case 'periodSave-Form':
+            if(data.periodicMoment === 'begin'){
+              const result = calculator.depositToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseInt(data.periods),
+                'annuity',
+                data.periodicType
+              );
+              
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }else{
+              const result = calculator.depositToGetAmmount(
+                parseFloat(data.initialBalance.replaceAll(',', '.')),
+                parseFloat(data.saveGoal.replaceAll(',','.')), 
+                parseFloat(data.interestRate.replaceAll(',','.')),
+                parseInt(data.periods),
+                'ordinary',
+                data.periodicType
+              );
+              createRoundedChart(result);
+              createBarChart(result);
+              fillTable(result);
+              fillResults(form, result, data);
+            }
+          break;
+        }
     }
 }
 
-
-
-const circleChartOptions = {
+function createRoundedChart(data){
+  const circleChartOptions = {
     title : {
         show: false
     },
@@ -579,7 +768,7 @@ const circleChartOptions = {
         trigger: 'item',
         formatter: function (params) {
             // Convertimos el valor numérico a string formateado
-            const formattedValue = params.value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+            const formattedValue = params.value.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
             return `
                 <span style="display:inline-block;width:10px;height:10px;background:${params.color};border-radius:50%;margin-right:5px;"></span>
                 <em>${params.name}</em><br>
@@ -589,25 +778,31 @@ const circleChartOptions = {
     },
     series: [
         {
-            type: 'pie',
-            radius: '90%',
-            data: [
-              { value: 1000, name: 'Balance Inicial', itemStyle: { color: '#8b5cf6'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
-              { value: 12000, name: 'Depósitos Periódicos', itemStyle: {color: '#2563eb'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
-              { value: 730.62, name: 'Interés Total', itemStyle: {color: '#84cc16'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
-            ],
-            emphasis: {
-              itemStyle: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              }
+          type: 'pie',
+          radius: '90%',
+          data: [
+            { value: data.initialAmmount, name: 'Balance Inicial', itemStyle: { color: '#8b5cf6'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
+            { value: data.totalPeriodicDeposits, name: 'Depósitos Periódicos', itemStyle: {color: '#2563eb'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
+            { value: data.totalInterest, name: 'Interés Total', itemStyle: {color: '#84cc16'}, label:{show: false}, labelLine:{ show: false,  emphasis: { show: false }} },
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
           }
+        }
     ]
-};
+  };
 
-const barChartOptions = {
+  resumeChart.setOption(circleChartOptions);
+  window.addEventListener('resize', resumeChart.resize);
+}
+
+function createBarChart(data){
+  
+  const barChartOptions = {
     title : {
         show: false
     },
@@ -633,49 +828,239 @@ const barChartOptions = {
             `;
         }
     },
-    series : [
-        {
-            data: [100, 8, 1],
-            type: 'bar',
-            stack: 'a',
-            name: 'Balance Inicial',
-            color: '#8b5cf6'
-        },
-        {
-            data: [8, 2, 1],
-            type: 'bar',
-            stack: 'a',
-            name: 'Depósitos Periódicos',
-            color: '#2563eb'
-        },
-        {
-            data: [10, 8, 1],
-            type: 'bar',
-            stack: 'a',
-            name: 'Interés Total',
-            color: '#84cc16'
-        }
-    ],
+    series : (() => {
+      const series = [];
+      const initialBalance = {
+        data: (()=>{ 
+          const balanceData = [];
+          for(let i = 0; i < data.table.length; i++){ balanceData.push(data.initialAmmount) }
+          return balanceData;
+        })(),
+        type: 'bar',
+        stack: 'a',
+        name: 'Balance Inicial',
+        color: '#8b5cf6',
+        barCategoryGap: '10%'
+      }
+      
+      const deposits = {
+        data: (()=>{ 
+          const depositsData = [];
+          let totalDeposit = 0;
+          for(let i = 0; i < data.table.length; i++){
+            totalDeposit += data.table[i].deposits;
+            depositsData.push(totalDeposit);
+          }
+          return depositsData;
+        })(),
+        type: 'bar',
+        stack: 'a',
+        name: 'Depósitos Periódicos',
+        color: '#2563eb',
+        barCategoryGap: '10%'
+      }
+
+      const interest = {
+        data: (()=>{ 
+          const interestData = [];
+          data.table.forEach(element => interestData.push(element.interest))
+          return interestData;
+        })(),
+        type: 'bar',
+        stack: 'a',
+        name: 'Interés Total',
+        color: '#84cc16',
+        barCategoryGap: '10%'
+      }
+      series.push(initialBalance, deposits, interest);
+      return series;
+    })(),
     xAxis: {
-        type: 'category',
-        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+      type: 'category',
+      data: (() =>{
+        const category = [];
+        for( let i = 0; i < data.table.length; i++){
+          category.push(`${i + 1}`);
+        }
+        return category;
+      })()
     },
     yAxis: {
-        type: 'value',
-        axisLabel: {
-            formatter: function (value) {
-                return value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
-            }
+      type: 'value',
+      axisLabel: {
+          formatter: function (value) {
+              return value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+          }
+      },
+      splitLine: {
+          show: true
+      }
+    },
+    media: [
+      {
+        query: {
+          maxWidth: 500 // Aplicar si el ancho es menor o igual a 500px.
         },
-        splitLine: {
-            show: true
+        option: {
+          grid: {
+            containLabel: false,
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 40,
+          },
+          yAxis: {
+            axisLabel:{
+              show: false
+            },
+            splitLine: {
+              show: false
+            }
+          }
         }
-    }
+      },
+    ]
+  }
+
+  barChart.setOption(barChartOptions);
+  window.addEventListener('resize', barChart.resize);
+
 };
 
-resumeChart.setOption(circleChartOptions);
-barChart.setOption(barChartOptions);
-window.addEventListener('resize', resumeChart.resize);
-window.addEventListener('resize', barChart.resize);
+function fillTable(data){
+  tableBody.innerHTML = '';
+  data.table.forEach(element => {
+    tableBody.innerHTML += `
+      <tr class="bg-white hover:bg-slate-50 border-b">
+        <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+          ${element.year}
+        </th>
+        <td class="px-6 py-4">
+          ${element.deposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+        <td class="px-6 py-4">
+            ${element.totalDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+        <td class="px-6 py-4">
+            ${(Math.abs(element.interest)).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+        <td class="px-6 py-4">
+            ${element.balance.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}
+        </td>
+      </tr>
+    `
+  });
+}
+
+function fillResults(formType, result, data){
+  
+  switch (formType) {
+    case 'save-Form':
+
+        document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+        
+        
+        if(data.periodicType === 'weekly'){
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} semanal`
+        }else if(data.periodicType === 'monthly'){
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} mensual`
+        }else if(data.periodicType === 'bi-weekly'){
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} bisemanal`
+        }else{
+          document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} anual`
+        }
+
+        document.querySelector(`#${formType}-result`).innerText = result.totalBalance.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+        document.querySelector(`#${formType}-period`).innerText = `${result.table.length} años`;
+        document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+        document.querySelector(`#${formType}-periodicTotal`).innerText = result.totalPeriodicDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+        document.querySelector(`#${formType}-interestTotal`).innerText = result.totalInterest.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+        document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+
+      break;
+
+    case 'time-Form':
+
+      document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+
+      if(data.periodicType === 'weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} semanal`
+      }else if(data.periodicType === 'monthly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} mensual`
+      }else if(data.periodicType === 'bi-weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} bisemanal`
+      }else{
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} anual`
+      }
+
+      document.querySelector(`#${formType}-result`).innerText = result.periodsToTime;
+      document.querySelector(`#${formType}-goal`).innerText = parseFloat(data.saveGoal.replaceAll(',','.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-periodicTotal`).innerText = result.totalPeriodicDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-interestTotal`).innerText = result.totalInterest.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+      document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+
+    break;
+
+    case 'periodSave-Form':
+      
+    document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+    
+    if(data.periodicType === 'weekly'){
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits / 52).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /semana</span>`
+    }else if(data.periodicType === 'monthly'){
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits / 12).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /mes</span>`
+    }else if(data.periodicType === 'bi-weekly'){
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits / 26).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /bisemanal</span>`
+    }else{
+      document.querySelector(`#${formType}-result`).innerHTML = `${(result.table[0].deposits).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })}<span class="text-base font-semibold"> /año</span>`
+    }
+
+    document.querySelector(`#${formType}-goal`).innerText = parseFloat(data.saveGoal.replaceAll(',','.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+    document.querySelector(`#${formType}-period`).innerText = `${result.table.length} años`;
+    document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+    document.querySelector(`#${formType}-periodicTotal`).innerText = result.totalPeriodicDeposits.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+    document.querySelector(`#${formType}-interestTotal`).innerText = result.totalInterest.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+    document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+
+    break;
+
+    case 'percentage-Form':
+      document.querySelectorAll('[id$="-resultBox"]').forEach(element => element.classList.add('hidden'));
+
+      if(data.periodicType === 'weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} semanal`
+      }else if(data.periodicType === 'monthly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} mensual`
+      }else if(data.periodicType === 'bi-weekly'){
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} bisemanal`
+      }else{
+        document.querySelector(`#${formType}-periodic`).innerText = `${parseFloat(data.periodicDeposit.replaceAll(',', '.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' })} anual`
+      }
+    
+      document.querySelector(`#${formType}-result`).innerText = `${result.finalInterest.toFixed(3)}%`;
+      document.querySelector(`#${formType}-goal`).innerText = parseFloat(data.saveGoal.replaceAll(',','.')).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-period`).innerText = `${result.table.length} años`;
+      document.querySelector(`#${formType}-initialBalance`).innerText = result.initialAmmount.toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+      document.querySelector(`#${formType}-interestTotal`).innerText = (Math.abs(result.totalInterest)).toLocaleString('de-DE', { maximumFractionDigits: 2, currency: 'EUR', style: 'currency' });
+
+      document.querySelector(`#${formType}-resultBox`).classList.remove('hidden');
+    break;
+  }
+
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  calculatorForms.forEach(form => {
+    if(form.id === 'save-Form'){
+      form.querySelector('button[type="submit"]').click();
+    }
+  })
+})
+
+
 
 
